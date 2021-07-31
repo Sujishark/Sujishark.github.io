@@ -26,12 +26,12 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <div class="container-fluid">
                         <form class="d-flex">
-                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                          <button class="btn btn-outline-primary" style="color: aliceblue;" type="submit">Search</button>
+                            <input placeholder="Search" id="search-users" class="search-users" type="text" autofocus>
+<!--                          <button class="btn btn-outline-primary" style="color: aliceblue;" type="submit" >Search</button>-->
                         </form>
                       </div>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Courses</a></li>
@@ -39,15 +39,29 @@
                 </div>
             </div>
         </nav>
-        <!-- Courses section -->
-        
+        <!-- Mycourses section -->
+        <br>
+        <center>
+        <h2>MY COURSES</h2>
+        </center>
         <div class="container px-5 my-5">
                
-            <div class="row" id="names-all">
+            <div class="row" id="myCourses">
                 
             </div>
         </div>
 
+        
+        <!-- Courses section -->
+        <center>
+        <h2>ALL COURSES</h2>
+        </center>
+        <div class="container px-5 my-5">
+               
+            <div class="row" id="allCourses">
+                
+            </div>
+        </div>
         
 
         <script src="js/script.js"></script>
