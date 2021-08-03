@@ -49,6 +49,21 @@
       "id": "109",
       "username": "Jackson",
       "password": "jacks"
+    },
+    {
+      "id": "57",
+      "username": "pallavi",
+      "password": "poiy567"
+    },
+    {
+      "id": 13,
+      "username": "jessi",
+      "password": "jess345"
+    },
+    {
+      "id": 67,
+      "username": "kaviya",
+      "password": "kavs"
     }
   ],
   "user_course": [
@@ -113,22 +128,94 @@
       "progress": 15
     },
     {
-      "userid": "106",
-      "courseid": "201",
+      "userid": "100",
+      "courseid": "200",
       "progress": 0,
       "id": 11
     },
     {
-      "userid": "101",
-      "courseid": "200",
+      "userid": "100",
+      "courseid": "302",
       "progress": 0,
       "id": 12
     },
     {
-      "userid": "106",
-      "courseid": "300",
+      "userid": "104",
+      "courseid": "200",
       "progress": 0,
       "id": 13
+    },
+    {
+      "userid": "104",
+      "courseid": "301",
+      "progress": 0,
+      "id": 14
+    },
+    {
+      "userid": "106",
+      "courseid": "202",
+      "progress": 0,
+      "id": 15
+    },
+    {
+      "userid": "106",
+      "courseid": "203",
+      "progress": 0,
+      "id": 16
+    },
+    {
+      "userid": "106",
+      "courseid": "201",
+      "progress": 0,
+      "id": 17
+    },
+    {
+      "userid": "106",
+      "courseid": "200",
+      "progress": 0,
+      "id": 18
+    },
+    {
+      "userid": "106",
+      "courseid": "302",
+      "progress": 0,
+      "id": 19
+    },
+    {
+      "userid": "106",
+      "courseid": "301",
+      "progress": 0,
+      "id": 20
+    },
+    {
+      "userid": "106",
+      "courseid": "400",
+      "progress": 0,
+      "id": 21
+    },
+    {
+      "userid": "57",
+      "courseid": "201",
+      "progress": 0,
+      "id": 22
+    },
+    {
+      "userid": "13",
+      "courseid": "303",
+      "progress": 0,
+      "id": 23
+    },
+    {
+      "userid": "13",
+      "courseid": "302",
+      "progress": 0,
+      "id": 24
+    },
+    {
+      "userid": "67",
+      "courseid": "200",
+      "progress": 0,
+      "id": 25
     }
   ],
   "courses": [
@@ -141,11 +228,15 @@
       "price": 750,
       "rating": 4.5,
       "duration": 1.5,
-      "video": "../assets/ReactJS.mp4",
+      "video": "http://127.0.0.1:5500/assets/videos/ReactJS.mp4",
       "enrolled_users": [
-        "101",
-        "102",
-        "103"
+        "103",
+        "100",
+        "104",
+        "106",
+        "106",
+        "106",
+        "67"
       ]
     },
     {
@@ -157,10 +248,11 @@
       "price": 999,
       "rating": 4.7,
       "duration": 3.5,
-      "video": "../assets/JavaScript.mp4",
+      "video": "http://127.0.0.1:5500/assets/videos/JavaScript.mp4",
       "enrolled_users": [
-        "102",
-        "103"
+        "100",
+        "106",
+        "57"
       ]
     },
     {
@@ -172,8 +264,10 @@
       "price": 650,
       "rating": 4.6,
       "duration": 1.5,
-      "video": "../assets/CSS.mp4",
-      "enrolled_users": []
+      "video": "http://127.0.0.1:5500/assets/videos/CSS.mp4",
+      "enrolled_users": [
+        "106"
+      ]
     },
     {
       "id": "203",
@@ -184,8 +278,11 @@
       "price": 650,
       "rating": 3.9,
       "duration": 1.5,
-      "video": "../assets/Bootstrap.mp4",
-      "enrolled_users": []
+      "video": "http://127.0.0.1:5500/assets/videos/Bootstrap.mp4",
+      "enrolled_users": [
+        "100",
+        "106"
+      ]
     },
     {
       "id": "300",
@@ -196,7 +293,7 @@
       "price": 649,
       "rating": 3,
       "duration": 0.5,
-      "video": "../assets/DBMS.mp4",
+      "video": "http://127.0.0.1:5500//assets/videos/DBMS.mp4",
       "enrolled_users": []
     },
     {
@@ -208,8 +305,11 @@
       "price": 600,
       "rating": 3.5,
       "duration": 0.5,
-      "video": "../assets/SQL.mp4",
-      "enrolled_users": []
+      "video": "http://127.0.0.1:5500/assets/videos/SQL.mp4",
+      "enrolled_users": [
+        "104",
+        "106"
+      ]
     },
     {
       "id": "302",
@@ -220,8 +320,14 @@
       "price": 499,
       "rating": 4.4,
       "duration": 0.5,
-      "video": "../assets/MongoDB.mp4",
-      "enrolled_users": []
+      "video": "C:/Java Prgms/Front_Basic/Swotter/assets/videos/MongDB.mp4",
+      "enrolled_users": [
+        "107",
+        "102",
+        "100",
+        "106",
+        "13"
+      ]
     },
     {
       "id": "303",
@@ -232,8 +338,12 @@
       "price": 550,
       "rating": 4,
       "duration": 0.5,
-      "video": "./assets/CouchDB.mp4",
-      "enrolled_users": []
+      "video": "./assets/videos/CouchDB.mp4",
+      "enrolled_users": [
+        "100",
+        "105",
+        "13"
+      ]
     },
     {
       "id": "400",
@@ -244,8 +354,10 @@
       "price": 599,
       "rating": 4.1,
       "duration": 1,
-      "video": "../assets/Data_Structures.mp4",
-      "enrolled_users": []
+      "video": "http://127.0.0.1:5500/assets/videos/Data_Structures.mp4",
+      "enrolled_users": [
+        "106"
+      ]
     },
     {
       "id": "401",
@@ -256,7 +368,7 @@
       "price": 499,
       "rating": 3.4,
       "duration": 1,
-      "video": "../assets/Pathfinding.mp4",
+      "video": "http://127.0.0.1:5500/assets/videos/Pathfinding.mp4",
       "enrolled_users": []
     },
     {
@@ -268,8 +380,10 @@
       "price": 499,
       "rating": 4.2,
       "duration": 0.5,
-      "video": "../assets/preparation_Interview.mp4",
-      "enrolled_users": []
+      "video": "http://127.0.0.1:5500/assets/videos/preparation_Interview.mp4",
+      "enrolled_users": [
+        "105"
+      ]
     },
     {
       "id": "500",
@@ -280,7 +394,7 @@
       "price": 550,
       "rating": 4.1,
       "duration": 0.5,
-      "video": "../assets/graphic.mp4",
+      "video": "http://127.0.0.1:5500/assets/videos/graphic.mp4",
       "enrolled_users": []
     },
     {
@@ -292,7 +406,7 @@
       "price": 550,
       "rating": 3.8,
       "duration": 0.5,
-      "video": "../assets/Edit_a_Video",
+      "video": "http://127.0.0.1:5500/assets/videos/Edit_a_Video",
       "enrolled_users": []
     }
   ],

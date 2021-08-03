@@ -4,20 +4,19 @@ var courseId ='';
 var searchUsers = document.querySelector('#search-users');
     
     
-searchUsers.addEventListener('keydown', myfun);
+searchUsers.addEventListener('keyup', myfun);
 
-function myfun(event)
+function myfun()
 {
     users = document.querySelectorAll('.cardTemp'),
     usersData = document.querySelectorAll('.searchtitle'),
     
-//alert(users.length);
     searchVal =event.target.value.toLowerCase();
     console.log(searchVal);
-    console.log(usersData[0].textContent);
+    console.log(usersData[0].innerText);
     //alert(usersData[0].textContent);
     for (var i = 0; i < users.length; i++) {
-        if (!searchVal || usersData[i].textContent.toLowerCase().indexOf(searchVal) > -1) {
+        if (!searchVal || usersData[i].innerText.toLowerCase().indexOf(searchVal) > -1) {
             users[i].style['display'] = 'flex';
           }
           else {
@@ -26,6 +25,32 @@ function myfun(event)
     }
 }
 
+function register(){
+    let url = 'http://localhost:3000/users';
+ //   alert('Hi');
+    const data = { 
+        id: Math.floor(Math.random()*100),
+        username: document.getElementById("name").value,
+        password: document.getElementById("pass").value
+    }
+  //      alert(data['id']);
+        
+    fetch(url, 
+    {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(function(response){
+      console.log(response);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+//        alert(error);
+      });
+}
 
 function login(){
 
@@ -64,11 +89,7 @@ function login(){
                 }
             });
 }
-//document.body.addEventListener("click",()=>buy());
-
-//alert(document.cookie);
-
-function buy(){
+async function buy(){
     var enrolled_users;
     let enrollButton=event.target;
     if(enrollButton.className.includes('buy')){
@@ -76,7 +97,7 @@ function buy(){
         let id=sessionStorage.getItem("loggedUserId");
         let progress=0;
         let data_header={};
-        var data= {
+        var data1= {
             "userid": id,
             "courseid":courseid,
             "progress":progress
@@ -86,102 +107,65 @@ function buy(){
             headers:{
                 'content-type':'application/json'
             },
-        body:JSON.stringify(data)
+        body:JSON.stringify(data1)
         };
 
-        fetch("http://localhost:3000/user_course",data_header)
-            .then(response=>{
+        
+
+            
+        await addUser();
+
+            let response= await fetch("http://localhost:3000/user_course",data_header);
                 if(!response.ok){
                     throw Error(response.status)
                 }
-            //    alert("enrolled successfully");
-                return response.json();
-            })
-            .then((data)=>{
+               let data=await response.json();
+        
                 console.log(data);
-            });
-
-            addUser();
-
-            
-//         fetch("http://localhost:3000/courses").then(res=>res.json()).then(
-//                 courseResponse=>{
-//                   //  res=courseResponse;
-//                     alert("hiiiiiiiiiiiiii");
-//                     courseResponse.forEach(course=>{
-//                         alert(typeof(courseId));
-//                         alert(course.id);
-
-//                         if(courseId==course.id){
-//                             enrolled_users=course.enrolled_users;
-//                             alert(enrolled_users);
-// //                            console.log(enrolled_users);
-//                         }
-//                     })
-//                 }
-//         ) 
-
-       // console.log(enrolled_users);   
+                alert("Enrolled successfully!");
     }
-    location.href="course_page.html";
 }
 
-function addUser(){
-    alert("hiii");
-    let enrolled_users = [];
-    let courseid=sessionStorage.getItem("courseId");
+async function addUser(){
+    let courseid=await sessionStorage.getItem("courseId");
     let url='http://localhost:3000/courses/'+courseid;
-    alert(url);
-    fetch(url).then(
-        response =>{
-            if(response.ok){
-                return response.json();
-            }}).then(userResponse=>{
-                alert("user hi ");
+    let response=await fetch(url);
+    if(!response.ok){
+        alert(response.status);
+    }
+    let userResponse=await response.json();
                 userDetails = userResponse;
-                alert(userDetails.enrolled_users);
-            //    enrolled_users = userDetails.enrolled_users;
-            //     addusertolist(enrolled_users,courseid);
+                await addusertolist(userDetails.enrolled_users,courseid);
+            
 
-                // userResponse.forEach(course=>{
-                //     alert("hihihihih");
-                //                             alert(typeof(courseId));
-                //                             alert(course.id);
-                    
-                //                             if(courseId==course.id){
-                //                                 enrolled_users=course.enrolled_users;
-                //                                 alert(enrolled_users);
-                //     //                            console.log(enrolled_users);
-                //                             }
-                //                         }
-
-                //                     )
-                                });
-                              //  alert(enrolled_users);
+                
 }
 
 
 
-function addusertolist(enrolled_users,id)
+async function addusertolist(enrolled,id)
 {
-    alert("inside fun");
-    enrolled_users.append(sessionStorage.getItem("loggedUserId"));
-   // let id = event.target.parentNode.getAttribute('id');
-    
-          ///////put
-         // let name = 'http://localhost:3000/employees/'+id;
-          //console.log(name);
-          fetch('http://localhost:3000/courses/'+id, {
-            method: 'PATCH',
-            body: JSON.stringify({
-           enrolled_users:enrolled_users
-        }),
-        headers: {
-    'Content-type': 'application/json; charset=UTF-8'
+    await enrolled.push(sessionStorage.getItem("loggedUserId"));
+          var data2= {
+            "enrolled_users":enrolled
+        };
+        data_header={
+            method:'PATCH',
+            headers:{
+                'content-type':'application/json'
+            },
+        body:JSON.stringify(data2)
+        };
+          let response= await fetch('http://localhost:3000/courses/'+id, data_header);
+if(!response.ok){
+    throw Error(response.status);
 }
-})
-.then(response => response.json())
-.then(json => console.log(json))
+else{
+    let res_json=await response.json();
+    console.log(res_json);
+    
+}
+
 }
 
 
@@ -203,6 +187,8 @@ function setup(){
                 console.log(userid);
                 start_buyButton.innerHTML="Start Learning";
                 start_buyButton.className="btn btn-primary btn-sm btn-block";
+                start_buyButton.removeAttribute("onclick");
+                start_buyButton.href=sessionStorage.getItem("courseVid");
         }
          });
         })
@@ -246,7 +232,7 @@ function loadMainCourse(){
        return courses.map((course)=>{
         //console.log( course.name);
           if(course.rating>=4.5&&(count++)<3){  
-            showCourse(course.id,course.name,course.desc,course.category,course.tutor,course.price,course.rating,allCourses);
+            showCourse(course.id,course.name,course.desc,course.category,course.tutor,course.price,course.rating,course.video,allCourses);
           }
            });
       }).catch(()=>{console.log("Error in response");});
@@ -272,10 +258,10 @@ fetch(" http://localhost:3000/courses")
         //console.log( course.name);
         var enrolled_users=course.enrolled_users;
             if(enrolled_users.includes(userid)){
-                showCourse(course.id,course.name,course.desc,course.category,course.tutor,course.price,course.rating,myCourses);
+                showCourse(course.id,course.name,course.desc,course.category,course.tutor,course.price,course.rating,course.video,myCourses);
             }
             else{
-                showCourse(course.id,course.name,course.desc,course.category,course.tutor,course.price,course.rating,allCourses);
+                showCourse(course.id,course.name,course.desc,course.category,course.tutor,course.price,course.rating,course.video,allCourses);
             }
        })
 
@@ -285,22 +271,22 @@ fetch(" http://localhost:3000/courses")
 
 
 
-function showCourse(id,s1,s2,s3,s4,p1,r1,nameItems)
+function showCourse(id,s1,s2,s3,s4,p1,r1,vid,nameItems)
 {
 
 var cartRow2 = document.createElement('div');
-cartRow2.classList="col-12 col-sm-12 col-md-4 ";
-
+cartRow2.classList="col-12 col-sm-12 col-md-4 cardTemp";
+cartRow2.style.padding="1rem";
            
 //var nameItems = document.getElementById('names-all');
 
  
   var allnames = `
-                    <div class="card cardTemp border-dark mb-3" style="width: 20rem; display:flex">\
+                    <div class="card h-100 border-dark mb-3" style="width: 20rem;">\
                     <center>\
                         <div class="card-img-top feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>\
                         <!-- <img class="card-img-top" src="apple.jfif" alt="Card image cap"> -->\
-                        <div class="card-block">\
+                        <div class="card-body">\
                         <center>\
                           <h4 class="card-title card-header h4 fw-bolder my_text searchtitle">${s1}</h4>\
                           <span class="card-subtitle mb-2 text-muted">${s3}</span>\
@@ -316,13 +302,16 @@ cartRow2.classList="col-12 col-sm-12 col-md-4 ";
                           <br>\
                           <span class="card-text shop-item-price">Rating:${r1}</span>\
                           <br>\
-                          <a class="text-decoration-none enrollNow" id=${id} href="#!">\
-                         <h4 class="card-header">   Enroll\
-                         <i class="bi bi-arrow-right"></i>\
-                         </h4>\
-                           
-                        </a>\
+                         
                         </div>\
+                        <div class="card-footer" id=${id} vid-data=${vid} style="font-weight: bold;"> 
+                        <a class="enrollNow" href="#!">\
+                          Enroll\
+                        <i class="bi bi-arrow-right"></i>\
+                        
+                          
+                       </a>\
+                       </div>\
                       </div>\
                       <br>\
     `
@@ -338,8 +327,9 @@ console.log(id);
 
     
 function enrollCourse(event){
-
     courseId = event.target.parentNode.getAttribute('id');
     sessionStorage.setItem("courseId",courseId);
+    courseVid=event.target.parentNode.getAttribute('vid-data');
+    sessionStorage.setItem("courseVid",courseVid);
     window.open("/course_page.html");
 }

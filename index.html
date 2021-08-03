@@ -16,10 +16,58 @@
       </script>
     </head>
     <body>
+     
       <div class="container-fluid">
       <div class="row">
         <div class="col-md-7 mainslide">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+            <div class="modal fade" id="modalExample" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  
+                  <div class="modal-body">
+                      <form  id="formdet">
+                      <div class="mb-3">
+                          <i class="fa fa-user"></i>
+                          <label for="1" class="form-label">Name</label>
+                          <input type="text" class="form-control"  id="name">
+                        </div>
+                          <div class="mb-3">
+                              <i class="fa fa-envelope"></i>
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                              <i class="fa fa-unlock"></i>
+                              <label for="2" class="form-label">Password</label>
+                              <input type="password" class="form-control" id="pass" required pattern=".{4,8}" size="35" title="Must contain 4 to 8 characters">
+                            </div>
+                            <div class="mb-3">
+                              <i class="fa fa-phone"></i>
+                              <label for="3" class="form-label">Contact</label>
+                              <input type="text" class="form-control" id="contact">
+                            </div>
+                          
+                            <button type="submit" onclick="register()" class="btn btn-primary submitbtn" id="submitBtn" style="display: flex;">Register</button>
+                           
+                        
+                          
+                          </form>
+                        
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -109,7 +157,7 @@
                   <a class="small" href="#!">Forgot password?</a>
                   <br/>
                   <br>
-                  <p class="mb-5 pb-lg-2" style="color: #cbe6df;">Don't have an account? <a href="#!">Register here</a></p>
+                  <p class="mb-5 pb-lg-2" style="color: #cbe6df;">Don't have an account? <a href="/index.html"  data-bs-toggle="modal" data-bs-target="#modalExample">Register here</a></p>
                   <a href="#!" class="small text-muted">Terms of use.</a>
                   <a href="#!" class="small text-muted">Privacy policy</a>
                 </form>

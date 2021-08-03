@@ -11,12 +11,15 @@
         <link rel= "stylesheet" href = "https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity= 
 "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"></script> 
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
        <!-- navbar -->
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid px-5">
-            <a class="navbar-brand" href="#!"><i class="bi bi-book"></i> Swotter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="navbar-brand" href="home.html"><i class="bi bi-book"></i> Swotter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <div class="container-fluid">
@@ -27,9 +30,9 @@
                   </div>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Logout</a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -48,7 +51,7 @@
         <p id="desc"></p>
         <div class="mini-layout fluid">
         <div class="mini-layout-sidebar">
-        <p ><a id="status" class="btn btn-primary btn-sm btn-block" onclick="buy()"  href="#"></a></p>
+        <p><a id="status" class="btn btn-primary btn-sm btn-block" onclick="buy()"  href="#"></a></p>
         </div>
         <div class="mini-layout-body">
         <!-- <p>?</p> -->
@@ -56,7 +59,7 @@
         </div>
         <div class="mini-layout fluid">
         <div class="mini-layout-sidebar">
-        <p><a class="btn btn-primary btn-sm btn-block focus" href="#">Assess my learning</a></p>
+        <p><a class="btn btn-primary btn-sm btn-block focus">Assess my learning</a></p>
         </div>
         <div class="mini-layout-body">
         <!-- <p>?</p> -->
@@ -80,7 +83,7 @@
         <h4><strong>Rating</strong></h4>
         <p id="rating"></p>
         <h4><strong>Duration</strong></h4>
-        <p id="duration"></p>
+        <p><span id="duration"></span> Hrs</p>
         <h4><strong>Tutor</strong></h4>
         <p id="tutor"></p>
         </div>
@@ -101,7 +104,25 @@
         </ul>
         </div>
         </div>
+      
         </div>
+        <!-- <div class="modal fade" id="maxiModal" style="width:1100px; margin-left:-30rem">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <video width="720" height="350" controls>
+                            <source src="" id="courseVid" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+
     <!-- <div class="course"> 
     <h2 class="course-name"></h2>
     </div>
@@ -116,7 +137,22 @@
            </div>
        </div>
    </div> -->
-
+   <!-- <div class="modal fade" id="maxiModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
     <script src="js/script.js"></script>
     <script>setup();</script>
     </body>
